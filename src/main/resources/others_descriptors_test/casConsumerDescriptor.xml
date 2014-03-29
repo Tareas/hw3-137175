@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<casConsumerDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+ 
+  <implementationName>edu.cmu.deiis.types.FileSystemCollectionReader</implementationName>
+  <processingResourceMetaData>
+    <name>casConsumerDescriptor</name>
+    <description>This is related to print answerScores</description>
+    <version>1.0</version>
+    <vendor>Apache Enterprise Foundation</vendor>
+    <configurationParameters>
+      <configurationParameter>
+        <name>Outputdirectory</name>
+        <description>This is the directory where XMI files should be located</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+    </configurationParameters>
+    <configurationParameterSettings>
+      <nameValuePair>
+        <name>Outputdirectory</name>
+        <value>
+          <string>Outputdata</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+    <typeSystemDescription>
+    <imports>
+    	<import name="org.apache.uima.examples.SourceDocumentInformation"/>
+    </imports>
+    </typeSystemDescription>
+    <capabilities>
+      <capability>
+        <inputs>
+        <type allAnnotatorFeatures = "true"> org.apache.uima.examples.SourceDocumentInformation</type>
+        </inputs>
+        <outputs/>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </processingResourceMetaData>
+  <resourceManagerConfiguration/>
+</casConsumerDescription>

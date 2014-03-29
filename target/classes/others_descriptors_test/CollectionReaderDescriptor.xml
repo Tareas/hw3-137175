@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Task 1
+     Section 1. Consider the folder of files located on the file system, wich means you can use:
+     org.apache.uima.tools.components.FileSystemCollectionReader.
+     Then write a Collection Reader Descriptor to fit the needs -->
+<collectionReaderDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <implementationName>org.apache.uima.examples.cpe.FileSystemCollectionReader</implementationName>
+  <processingResourceMetaData>
+    <name>FileSystemCollectionReaderDescriptor</name>
+    <description>FileSystem Collection Reader Descriptor that uses or not CAS Initializer.</description>
+    <version>1.0</version>
+    <vendor>Apache Enterprise Foundation</vendor>
+    <configurationParameters searchStrategy="none">
+      <configurationParameter>
+        <name>InputDirectory</name>
+        <description>this directory contains inputs files</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>true</mandatory>
+      </configurationParameter>
+    <configurationParameter>
+        <name>Encoding</name>
+        <description>Encoding parameter. The idea is that CAS is responsible to deal with character encoding issues.</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <configurationParameter>
+        <name>InputDir</name>
+        <description>C:\Users\Tania\hw3-137175\src\main\resources\inputData</description>
+        <type>String</type>
+        <multiValued>false</multiValued>
+        <mandatory>false</mandatory>
+      </configurationParameter>
+      <commonParameters>
+        <configurationParameter>
+          <name>Language</name>
+          <description>ISO language code</description>
+          <type>String</type>
+          <multiValued>false</multiValued>
+          <mandatory>false</mandatory>
+        </configurationParameter>
+        
+        <configurationParameter>
+          <name>SearchingSubdirectories</name>
+          <description>searching files of subdirectories in the input directory.</description>
+          <type>Boolean</type>
+          <multiValued>false</multiValued>
+          <mandatory>false</mandatory>
+        </configurationParameter>
+      </commonParameters>
+    </configurationParameters>
+    
+    <!--InputData -->
+  <configurationParameterSettings>
+      <nameValuePair>
+        <name>InputDir</name>
+        <value>
+          <string>C:\Users\Tania\hw3-137175\src\main\resources\inputData</string>
+        </value>
+      </nameValuePair>
+    </configurationParameterSettings>
+ 
+  <!-- Configuration  Type System of CAS returned by CollectionReader-->
+    <typeSystemDescription>
+      <imports>
+        <import name="org.apache.uima.examples.SourceDocumentInformation"/>
+      </imports>
+    </typeSystemDescription>
+    <typePriorities/>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">org.apache.uima.examples.SourceDocumentInformation</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    <capability>
+        <inputs/>
+        <outputs/>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+  <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>false</multipleDeploymentAllowed>
+      <outputsNewCASes>true</outputsNewCASes>
+    </operationalProperties>
+  </processingResourceMetaData>
+  <resourceManagerConfiguration/>
+</collectionReaderDescription>

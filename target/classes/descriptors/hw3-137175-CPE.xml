@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cpeDescription xmlns="http://uima.apache.org/resourceSpecifier">
+    <collectionReader>
+        <collectionIterator>
+            <descriptor>
+                <import location="../../../../../../../Program Files/uimaj-2.5.0-bin/apache-uima/examples/descriptors/collection_reader/FileSystemCollectionReader.xml"/>
+            </descriptor>
+            <configurationParameterSettings>
+                <nameValuePair>
+                    <name>InputDirectory</name>
+                    <value>
+                        <string>C:\</string>
+                    </value>
+                </nameValuePair>
+            </configurationParameterSettings>
+        </collectionIterator>
+    </collectionReader>
+   
+    <casProcessors casPoolSize="3" processingUnitThreadCount="1"></casProcessors>
+    
+     <casProcessor name="hw2-137175-aae" deployment="integrated">
+       <descriptor>
+         <import location="/hw3-137175/src/main/resources/hw2-137175-aae.xml"/>
+       </descriptor>
+    <deploymentParameters/>
+ 
+     <errorHandling>
+        <errorRateThreshold value="0/1000" action="terminate"/>
+           <maxConsecutiveRestarts value="30" action="terminate"/>
+      <timeout default="-1" max="100000"/>
+     </errorHandling>
+
+     <checkpoint time="1000ms" batch="10000"/>
+   </casProcessor>
+    <!-- Configuration CPE -->
+    <cpeConfig>
+        <numToProcess>-1</numToProcess>
+        <deployAs>immediate</deployAs>
+        <checkpoint batch="0" time="300000ms"/>
+        <timerImpl/>
+    </cpeConfig>
+</cpeDescription>
